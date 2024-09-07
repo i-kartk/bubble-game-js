@@ -1,8 +1,11 @@
-function hit(){
-    var randomNumber = Math.floor(Math.random() * 10 )
-    document.querySelector("#hitVal").textContent = randomNumber
+let numToHit;
+let score=0;;
+let timer = 0;
 
-}
+    function hitNumGenerator(){
+        numToHit = Math.floor(Math.random() *10)
+        document.querySelector("#hitVal").textContent = numToHit
+    }
 
 function createBubbles(){
     const bubble_area = document.querySelector(".panel-bottom");
@@ -16,26 +19,40 @@ function createBubbles(){
     bubble_area.innerHTML = bubbleCluster
 
 }
+
 function runTimer() {
     let countDown = 60;
     let timer = setInterval( function () {
-        
         if (countDown > 0){
             countDown--;
             document.querySelector("#timerVal").textContent = countDown;
         }else{
             clearInterval(timer)
+            document.querySelector('.panel-bottom').textContent = `
+            Times up Start a new Game`
         }
         
     },1000)
 }
 
 function increaseScore(){
-    let score = 4
     score += 10;
-    document.querySelector("#scoreVal").textContent = score
+    console.log(score)
+    document.querySelector("#scoreVal").textContent = score;
+    
+}
+
+function click(){
+    document.querySelector(".panel-bottom").addEventListener("click", function (event){
+       console.log()
+       if(numToHit  === Number(event.target.innerText)){
+        increaseScore()
+        hitNumGenerator()
+       }
+
+    },false)
 }
 createBubbles()
 runTimer()
-hit()
-increaseScore()
+hitNumGenerator()
+click()
