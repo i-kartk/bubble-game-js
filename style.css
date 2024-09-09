@@ -17,6 +17,7 @@ main{
 }
 
 main .header {
+    position: relative;
     height: 100vh;
     width: 100%;
     margin: auto;
@@ -204,4 +205,61 @@ main .header {
 .bubble:hover{
     cursor: pointer;
     background-color: rgb(89, 92, 91);
+}
+
+
+
+
+#restart-toggle {
+    display: none;
+    height: 200px;
+    width: 80%; /* Adjust width */
+    background-color: rgba(255, 0, 0, 0.495);
+    position: fixed; /* Change from absolute to fixed */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust to truly center */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: -1; /* Bring it to front */
+    border-radius: 10px; /* Add some border radius for better appearance */
+}
+
+#restart-toggle>h2 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: #9f092c;
+    font-family: Georgia;
+    font-weight: 900;
+}
+
+#restart-toggle span {
+    margin-left: 10px;
+    color: white;
+    background-image: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 40px;
+    padding: 10px;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px; /* Add some space from the score */
+}
+
+.buttons>button {
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    width: 120px;
+    padding: 10px;
+    font-size: 1.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: white;
+    border-radius: 8px; /* Slight rounding for better look */
 }

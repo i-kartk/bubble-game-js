@@ -1,7 +1,9 @@
 const panel = document.querySelector(".panel-bottom");
+const restartPanel = document.getElementById("restart-toggle")
 let hitNumber;
 let countdown;
 let scoreVal = 0;
+
 
 // DOM MODIFICATION FUNCTIONS
 
@@ -11,7 +13,6 @@ function updateHitVal(num){
 
 function updateScore(score){
     document.getElementById("scoreVal").textContent = score;
-    console.log(score)
 }
 
 function updateTimer(time){
@@ -28,6 +29,29 @@ const showPanel = function (){
     });
     
 }()
+
+function restart(){
+
+    panel.parentElement.style.display = "none";
+    restartPanel.parentElement.children[0].style.display = "none";
+    restartPanel.parentElement.children[1].style.display = "none";
+    restartPanel.style.display = 'flex';
+    restartPanel.style.zIndex = 999;
+    document.getElementById("final-score").textContent = scoreVal;
+
+    restartPanel.children[1].firstElementChild.addEventListener('click',function(e){
+       
+        
+   
+    },false)
+    restartPanel.children[1].lastElementChild.addEventListener('click', function(){
+        
+    },false)
+    
+}
+
+
+
 
 
 const randomNumber = function(){
@@ -53,19 +77,21 @@ function targetValue(){
 
 
 function countDown(){
-    countdown = 60
+    countdown = 3
 
     let timer = setInterval(() => {
         if(countdown > 0){
             countdown--;
             updateTimer(countdown);
-        }else{
+        }
+        else{
             clearInterval(timer);
+            restart();
         }
     }, 1000);
 }
 
-function score(){
+function increaseScore(){
     scoreVal += 10
     updateScore(scoreVal)
 }
@@ -76,7 +102,7 @@ function targetClick(){
 
 const clickCheck = function(event){
     if( hitNumber === Number(event.target.innerText)){
-        score();
+        increaseScore();
         createBubbles();
         targetValue();
     }
