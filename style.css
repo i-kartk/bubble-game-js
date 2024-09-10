@@ -16,7 +16,7 @@ main{
     
 }
 
-main .header {
+main .page-1 {
     position: relative;
     height: 100vh;
     width: 100%;
@@ -31,10 +31,10 @@ main .header {
     align-items: center;
     flex-direction: column;
     justify-content: center;
-
+    z-index: 999;
 }
 
-.header>h1{
+.page-1>h1{
     font-family: 'roboto';
     text-transform: uppercase;
     margin: 20px;
@@ -42,11 +42,11 @@ main .header {
     font-weight: 900;
 }
 
-.header>input{
+.page-1>input{
     height: 10%;
     width: 20%;
     border-radius: 10px;
-    font-size: 2em;
+    font-size: 20px;
     text-transform: uppercase;
     font-weight: 900;
     cursor: pointer;
@@ -215,7 +215,7 @@ main .header {
     height: 200px;
     width: 80%; /* Adjust width */
     background-color: rgba(255, 0, 0, 0.495);
-    position: fixed; /* Change from absolute to fixed */
+    position: absolute; /* Change from absolute to fixed */
     top: 50%; /* Center vertically */
     left: 50%; /* Center horizontally */
     transform: translate(-50%, -50%); /* Adjust to truly center */
@@ -224,7 +224,6 @@ main .header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    z-index: -1; /* Bring it to front */
     border-radius: 10px; /* Add some border radius for better appearance */
 }
 
@@ -253,7 +252,7 @@ main .header {
     margin-top: 20px; /* Add some space from the score */
 }
 
-.buttons>button {
+.buttons button{
     background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
     width: 120px;
     padding: 10px;
